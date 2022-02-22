@@ -3,6 +3,9 @@
 # Add Homebrew binaries to PATH
 export PATH=$PATH:/opt/homebrew/bin
 
+# Configure brewfile
+export HOMEBREW_BUNDLE_FILE=$HOME/.brew
+
 # Add Python binaries to PATH
 export PATH=$PATH:/Users/josh/Library/Python/3.8/bin
 
