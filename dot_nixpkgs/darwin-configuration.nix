@@ -5,6 +5,7 @@ let syspkgs = [
   pkgs.awscli2
   pkgs.bash-completion
   pkgs.bitwarden-cli
+  pkgs.chezmoi
   pkgs.consul
   pkgs.curl
   pkgs.git
