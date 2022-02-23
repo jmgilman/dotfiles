@@ -9,6 +9,9 @@ let syspkgs = [
   pkgs.chezmoi
   pkgs.consul
   pkgs.curl
+  pkgs.diff-so-fancy
+  pkgs.fzf
+  pkgs.gh
   pkgs.git
   pkgs.gnupg
   pkgs.gnutls
@@ -17,6 +20,7 @@ let syspkgs = [
   pkgs.lastpass-cli
   pkgs.jq
   pkgs.nano
+  pkgs.navi
   pkgs.nodejs
   pkgs.oh-my-zsh
   pkgs.packer
@@ -29,6 +33,7 @@ let syspkgs = [
   pkgs.rustup
   pkgs.sqlite
   pkgs.terraform
+  pkgs.thefuck
   pkgs.vault
   pkgs.wget
   pkgs.vim
@@ -116,6 +121,8 @@ in {
           "copyfile"
           "copybuffer"
           "dirhistory"
+          "fzf"
+          "gh"
           "git"
           "macos"
           "sudo"
@@ -160,6 +167,12 @@ in {
         # Setup Hashicorp autocompletion
         complete -o nospace -C ${pkgs.consul}/bin/consul consul
         complete -o nospace -C ${pkgs.packer}/bin/packer packer
+
+        # Configure thefuck
+        eval $(thefuck --alias)
+
+        # Configure navi
+        eval "$(navi widget zsh)"
       '';
 
       initExtraBeforeCompInit = ''

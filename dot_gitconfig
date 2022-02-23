@@ -110,6 +110,9 @@
     # Use vim as default editor
     editor = vim
 
+	# Use diff-so-fancy for diffs
+	pager = "diff-so-fancy | less --tabs=4 -RFX"
+
 [color]
 
 	# Use colors in Git commands that are capable of colored output when
@@ -149,6 +152,10 @@
 
 	# Use `hexdump` to diff binary files
 	textconv = hexdump -v -C
+
+[interactive]
+	# Use diff-so-fancy
+	diffFilter = "diff-so-fancy --patch"
 
 [help]
 
