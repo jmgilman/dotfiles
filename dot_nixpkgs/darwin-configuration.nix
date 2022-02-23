@@ -56,6 +56,8 @@ in {
   # Program configuration
 
   programs.bash.enableCompletion = true;
+  programs.gnupg.agent.enable = true;
+  programs.gnupg.agent.enableSSHSupport = true;
   programs.nix-index.enable = true;
 
   # Environment configuration
