@@ -1,13 +1,18 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
+
+# Expand $PATH
+export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
+# Setup pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 
 # Add Homebrew binaries to PATH
 export PATH=$PATH:/opt/homebrew/bin
 
 # Configure brewfile
 export HOMEBREW_BUNDLE_FILE=$HOME/.brew
-
-# Add Python binaries to PATH
-export PATH=$PATH:/Users/josh/Library/Python/3.8/bin
 
 # Make vim the default editor.
 export EDITOR='vim';
@@ -17,12 +22,6 @@ export GPG_TTY=$(tty)
 
 # Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
 export PYTHONIOENCODING='UTF-8';
-
-# Increase Bash history size. Allow 32³ entries; the default is 500.
-export HISTSIZE='32768';
-export HISTFILESIZE="${HISTSIZE}";
-# Omit duplicates and commands that begin with a space from history.
-export HISTCONTROL='ignoreboth';
 
 # Prefer US English and use UTF-8.
 export LANG='en_US.UTF-8';
@@ -43,6 +42,3 @@ export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 # Force Packer to use /tmp for cache
 export PACKER_CACHE_DIR=/tmp/packer
-
-# Remove bash deprecation warning
-export BASH_SILENCE_DEPRECATION_WARNING=1
