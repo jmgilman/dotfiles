@@ -1,7 +1,10 @@
 { config, pkgs, ... }:
+
+# All system packages
 let syspkgs = [
-  pkgs.ansible
   pkgs.asciinema
+  pkgs.ansible
+  pkgs.any-nix-shell
   pkgs.awscli2
   pkgs.bash
   pkgs.bash-completion
@@ -39,6 +42,7 @@ let syspkgs = [
   pkgs.vim
   pkgs.zsh
 ];
+
 in {
   # Default system configurations
   system.defaults.NSGlobalDomain.ApplePressAndHoldEnabled = false;
@@ -70,36 +74,21 @@ in {
   programs.zsh.enable = true;
 
   # Environment configuration
-  environment.loginShell = "${pkgs.zsh}/bin/zsh -l";
-  environment.variables.SHELL = "${pkgs.zsh}/bin/zsh";
   environment.variables.LANG = "en_US.UTF-8";
 
-  # List packages installed in system profile. To search by name, run:
-  # $ nix-env -qaP | grep wget
+  # System packages
   environment.systemPackages = syspkgs;
-
-  # Use a custom configuration.nix location.
-  # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
-  # environment.darwinConfig = "$HOME/.config/nixpkgs/darwin/configuration.nix";
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
-  # nix.package = pkgs.nix;
 
-  # Create /etc/bashrc that loads the nix-darwin environment.
-  # programs.zsh.enable = true;  # default shell on catalina
-  # programs.fish.enable = true;
-
-  # Used for backwards compatibility, please read the changelog before changing.
-  # $ darwin-rebuild changelog
   system.stateVersion = 4;
-
   nix.extraOptions = ''
     extra-platforms = aarch64-darwin x86_64-darwin
     experimental-features = nix-command flakes
   '';
 
-  # Home Manager
+  # home-manager configuration
   imports = [ <home-manager/nix-darwin> ];
   users.users.josh = {
     name = "josh";
@@ -107,7 +96,18 @@ in {
   };
 
   home-manager.users.josh = { pkgs, ... }: {
+    # User-specific packages
     home.packages = [  ];
+
+    # Enable direnv with nix support
+    programs.direnv = {
+      enable = true;
+      nix-direnv = {
+        enable = true;
+      };
+    };
+
+    # zsh configuration
     programs.zsh = {
       enable = true;
       enableAutosuggestions = true;
@@ -145,15 +145,17 @@ in {
         }
       ];
 
+      # Extra environment variables
       envExtra = ''
         # Load exports
-        source .exports
+        source $HOME/.exports
       '';
 
+      # Extra content for .envrc
       initExtra = ''
         # Setup pyenv
-        eval "$(pyenv init --path)"
-        eval "$(pyenv init -)"
+        # eval "$(pyenv init --path)"
+        # eval "$(pyenv init -)"
 
         # Setup pure
         fpath+=${pkgs.pure-prompt}/share/zsh/site-functions
@@ -173,8 +175,12 @@ in {
 
         # Configure navi
         eval "$(navi widget zsh)"
+
+        # Configure any-nix-shell
+        any-nix-shell zsh --info-right | source /dev/stdin
       '';
 
+      # Extra content for .envrc loaded before compinit()
       initExtraBeforeCompInit = ''
         # Add completions
         fpath+=${pkgs.chezmoi}/share/zsh/site-functions
