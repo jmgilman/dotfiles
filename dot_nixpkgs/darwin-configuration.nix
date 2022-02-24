@@ -37,6 +37,7 @@ let syspkgs = [
   pkgs.sqlite
   pkgs.terraform
   pkgs.thefuck
+  pkgs.tldr
   pkgs.vault
   pkgs.wget
   pkgs.vim

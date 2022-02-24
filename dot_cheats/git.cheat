@@ -1,0 +1,4 @@
+% git, code
+
+# Revert last commit
+git reset HEAD~

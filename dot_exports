@@ -42,3 +42,6 @@ export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 # Force Packer to use /tmp for cache
 export PACKER_CACHE_DIR=/tmp/packer
+
+# Set navi cheat path
+export NAVI_PATH="$HOME/.cheats"
