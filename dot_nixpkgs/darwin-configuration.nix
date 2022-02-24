@@ -5,6 +5,7 @@ let syspkgs = [
   pkgs.asciinema
   pkgs.ansible
   pkgs.any-nix-shell
+  pkgs.autojump
   pkgs.awscli2
   pkgs.bash
   pkgs.bash-completion
@@ -144,7 +145,6 @@ in {
         czd = "cd ~/.local/share/chezmoi";
         cze = "chezmoi edit";
         czr = "chezmoi apply ~/.nixpkgs/darwin-configuration.nix darwin-update && exec $SHELL";
-        j = "jobs -l";
         left = "ls -t -1";
         ll = "ls -la";
         lt = "du -sh * | sort -h";
@@ -200,6 +200,9 @@ in {
 
         # Configure any-nix-shell
         any-nix-shell zsh --info-right | source /dev/stdin
+
+        # Configure autojump
+        source ${pkgs.autojump}/share/zsh/site-functions/autojump.zsh
       '';
 
       # Extra content for .envrc loaded before compinit()
