@@ -133,6 +133,27 @@ in {
         theme = "";
       };
 
+      shellAliases = {
+        ".." = "cd ..";
+        "..." = "cd ../..";
+        count = "find . -type f | wc -l";
+        ct = "column -t";
+        cz = "chezmoi";
+        cza = "chezmoi apply";
+        czd = "cd ~/.local/share/chezmoi";
+        cze = "chezmoi edit";
+        czr = "chezmoi apply ~/.nixpkgs/darwin-configuration.nix darwin-update && exec $SHELL";
+        j = "jobs -l";
+        left = "ls -t -1";
+        ll = "ls -la";
+        lt = "du -sh * | sort -h";
+        mount = "mount | grep -E ^/dev | column -t";
+        now = ''date +"%T"'';
+        ports = "sudo lsof -iTCP -sTCP:LISTEN -n -P";
+        today = ''date +"%d-%m-%Y"'';
+        vi = "vim";
+      };
+
       plugins = [
         {
           name = "you-should-use";
