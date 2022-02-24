@@ -7,13 +7,18 @@ let syspkgs = [
   pkgs.any-nix-shell
   pkgs.autojump
   pkgs.awscli2
-  pkgs.bash
-  pkgs.bash-completion
+  pkgs.bat
+  pkgs.bat-extras.batman
+  pkgs.bat-extras.batgrep
+  pkgs.bat-extras.batdiff
+  pkgs.bat-extras.batwatch
+  pkgs.bat-extras.prettybat
   pkgs.bitwarden-cli
   pkgs.chezmoi
   pkgs.consul
   pkgs.curl
   pkgs.diff-so-fancy
+  pkgs.fd
   pkgs.fzf
   pkgs.gh
   pkgs.git
@@ -34,6 +39,7 @@ let syspkgs = [
   pkgs.pure-prompt
   pkgs.python
   pkgs.redis
+  pkgs.ripgrep
   pkgs.rustup
   pkgs.sqlite
   pkgs.terraform
@@ -42,7 +48,6 @@ let syspkgs = [
   pkgs.vault
   pkgs.wget
   pkgs.vim
-  pkgs.zsh
 ];
 
 in {
@@ -138,6 +143,8 @@ in {
       shellAliases = {
         ".." = "cd ..";
         "..." = "cd ../..";
+        brg = "batgrep";
+        cat = "bat --paging=never";
         count = "find . -type f | wc -l";
         ct = "column -t";
         cz = "chezmoi";
