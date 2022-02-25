@@ -1,7 +1,10 @@
 { config, pkgs, ... }:
 
 # All system packages
-let syspkgs = [
+let
+extraNodePackages = import ./default.nix {};
+syspkgs = [
+  extraNodePackages.svg-term-cli
   pkgs.asciinema
   pkgs.ansible
   pkgs.any-nix-shell
