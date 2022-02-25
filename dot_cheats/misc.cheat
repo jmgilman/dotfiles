@@ -1,0 +1,10 @@
+% svg, recording
+
+# Start a recording
+asciinema rec
+
+% svg, recording
+
+# Convert asciinema recording to SVG
+cat <recording> | svg-term
+$ recording: fd -d 1 ".*\.json|.*\.cast"
