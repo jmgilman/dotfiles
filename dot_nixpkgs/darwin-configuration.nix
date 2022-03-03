@@ -2,7 +2,7 @@
 
 # All system packages
 let
-extraNodePackages = import ./default.nix {};
+extraNodePackages = import ./node/default.nix {};
 syspkgs = [
   extraNodePackages.svg-term-cli
   pkgs.asciinema
@@ -40,10 +40,12 @@ syspkgs = [
   pkgs.postgresql
   pkgs.pre-commit
   pkgs.pure-prompt
-  pkgs.python
+  pkgs.python310
   pkgs.redis
   pkgs.ripgrep
   pkgs.rustup
+  pkgs.shellcheck
+  pkgs.shfmt
   pkgs.sqlite
   pkgs.terraform
   pkgs.thefuck
@@ -155,6 +157,8 @@ in {
         czd = "cd ~/.local/share/chezmoi";
         cze = "chezmoi edit";
         czr = "chezmoi apply ~/.nixpkgs/darwin-configuration.nix darwin-update && exec $SHELL";
+        gbc = "git checkut -b ";
+        gpb = ''git push origin "$(git rev-parse --abbrev-ref HEAD)"'';
         left = "ls -t -1";
         ll = "ls -la";
         lt = "du -sh * | sort -h";
