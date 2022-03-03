@@ -2,3 +2,8 @@
 
 # Revert last commit
 git reset HEAD~
+
+% git, code
+
+% Get current branch
+git rev-parse --abbrev-ref HEAD
