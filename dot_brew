@@ -1,7 +1,6 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
-tap "jmgilman/apps"
 cask "discord"
 cask "docker"
 cask "google-chrome"
