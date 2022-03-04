@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 
-# darwin-configuration.nix hash: {{ include "dot_nixpkgs/darwin-configuration.nix" | sha256sum }}
-darwin-rebuild switch
+# configuration.nix hash: {{ include "dot_config/darwin/configuration.nix" | sha256sum }}
+# flake.nix hash: {{ include "dot_config/darwin/flake.nix" | sha256sum }}
+# home.nix hash: {{ include "dot_config/darwin/home.nix" | sha256sum }}
+darwin-rebuild switch --flake ~/.config/darwin
