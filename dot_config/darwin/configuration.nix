@@ -3,52 +3,24 @@
 # All system packages
 let
 syspkgs = [
-  pkgs.asciinema
-  pkgs.ansible
-  pkgs.any-nix-shell
-  pkgs.autojump
-  pkgs.awscli2
   pkgs.bat
   pkgs.bat-extras.batman
   pkgs.bat-extras.batgrep
   pkgs.bat-extras.batdiff
   pkgs.bat-extras.batwatch
   pkgs.bat-extras.prettybat
-  pkgs.bitwarden-cli
-  pkgs.chezmoi
-  pkgs.consul
   pkgs.curl
-  pkgs.diff-so-fancy
   pkgs.fd
   pkgs.fzf
-  pkgs.gh
   pkgs.git
   pkgs.gnupg
   pkgs.gnutls
   pkgs.go
-  pkgs.google-cloud-sdk
-  pkgs.lastpass-cli
   pkgs.jq
   pkgs.nano
-  pkgs.navi
   pkgs.nodejs
-  pkgs.oh-my-zsh
-  pkgs.packer
-  pkgs.poetry
-  pkgs.postgresql
-  pkgs.pre-commit
-  pkgs.pure-prompt
   pkgs.python310
-  pkgs.redis
   pkgs.ripgrep
-  pkgs.rustup
-  pkgs.shellcheck
-  pkgs.shfmt
-  pkgs.sqlite
-  pkgs.terraform
-  pkgs.thefuck
-  pkgs.tldr
-  pkgs.vault
   pkgs.wget
   pkgs.vim
 ];

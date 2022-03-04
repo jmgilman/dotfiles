@@ -1,6 +1,35 @@
 { config, pkgs, ... }: {
     # User-specific packages
-    home.packages = [  ];
+    home.packages = [
+        pkgs.asciinema
+        pkgs.ansible
+        pkgs.any-nix-shell
+        pkgs.autojump
+        pkgs.awscli2
+        pkgs.bitwarden-cli
+        pkgs.chezmoi
+        pkgs.consul
+        pkgs.diff-so-fancy
+        pkgs.gh
+        pkgs.google-cloud-sdk
+        pkgs.lastpass-cli
+        pkgs.navi
+        pkgs.oh-my-zsh
+        pkgs.packer
+        pkgs.poetry
+        pkgs.postgresql
+        pkgs.pre-commit
+        pkgs.pure-prompt
+        pkgs.redis
+        pkgs.rustup
+        pkgs.shellcheck
+        pkgs.shfmt
+        pkgs.sqlite
+        pkgs.terraform
+        pkgs.thefuck
+        pkgs.tldr
+        pkgs.vault
+    ];
 
     # Enable direnv with nix support
     programs.direnv = {
