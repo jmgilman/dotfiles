@@ -2,6 +2,14 @@
 
 # All system packages
 let
+
+yubikey-manager = pkgs.yubikey-manager.overrideAttrs (_: {
+  postPatch = ''
+    substituteInPlace pyproject.toml \
+      --replace 'cryptography = "^2.1 || ^3.0"' 'cryptography = "*"'
+  '';
+});
+
 syspkgs = [
   pkgs.bat
   pkgs.bat-extras.batman
@@ -10,6 +18,7 @@ syspkgs = [
   pkgs.bat-extras.batwatch
   pkgs.bat-extras.prettybat
   pkgs.curl
+  pkgs.direnv
   pkgs.fd
   pkgs.fzf
   pkgs.git
@@ -19,10 +28,16 @@ syspkgs = [
   pkgs.jq
   pkgs.nano
   pkgs.nodejs
+  pkgs.openssh
+  pkgs.pcsclite
+  pkgs.pinentry_mac
+  pkgs.procps
   pkgs.python310
   pkgs.ripgrep
-  pkgs.wget
   pkgs.vim
+  pkgs.wget
+  yubikey-manager
+  pkgs.zsh
 ];
 
 in {
@@ -51,7 +66,7 @@ in {
 
   programs.bash.enableCompletion = true;
   programs.gnupg.agent.enable = true;
-  programs.gnupg.agent.enableSSHSupport = true;
+  programs.gnupg.agent.enableSSHSupport = false;
   programs.nix-index.enable = true;
   programs.zsh.enable = true;
 
