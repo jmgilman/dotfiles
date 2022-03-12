@@ -13,7 +13,9 @@
         pkgs.gh
         pkgs.google-cloud-sdk
         pkgs.lastpass-cli
+        pkgs.maven
         pkgs.navi
+        pkgs.nixos-generators
         pkgs.oh-my-zsh
         pkgs.packer
         pkgs.poetry
