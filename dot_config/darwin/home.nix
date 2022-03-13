@@ -59,12 +59,16 @@
                 "gh"
                 "git"
                 "macos"
+                "ssh-agent"
                 "sudo"
                 "terraform"
                 "web-search"
                 "vscode"
             ];
             theme = "";
+            extraConfig = ''
+                zstyle :omz:plugins:ssh-agent lazy yes
+            '';
         };
 
         shellAliases = {
