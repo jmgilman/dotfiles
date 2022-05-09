@@ -1,23 +1,30 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, machnix, ... }:
+let
+    gopass = pkgs.callPackage ./packages/gopass.nix {};
+in {
     # User-specific packages
     home.packages = [
+        gopass
         pkgs.asciinema
         pkgs.ansible
         pkgs.any-nix-shell
         pkgs.autojump
         pkgs.awscli2
         pkgs.bitwarden-cli
+        pkgs.certbot-full
         pkgs.chezmoi
         pkgs.consul
         pkgs.diff-so-fancy
         pkgs.gh
         pkgs.google-cloud-sdk
+        pkgs.jdk11
         pkgs.lastpass-cli
         pkgs.maven
         pkgs.navi
         pkgs.nixos-generators
         pkgs.oh-my-zsh
         pkgs.packer
+        pkgs.php
         pkgs.poetry
         pkgs.postgresql
         pkgs.pre-commit
