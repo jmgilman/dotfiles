@@ -5,11 +5,6 @@ Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.
 
 AddKeysToAgent yes
 
-Host github.com
-  Hostname github.com
-  User jmgilman
-  IdentityFile ~/.ssh/id_ed25519_sk
-
 Host *
   User admin
   Port 22
