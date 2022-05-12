@@ -1,0 +1,14 @@
+[".config/darwin"]
+    type = "archive"
+    url = "https://github.com/jmgilman/dev-mac/archive/refs/heads/master.tar.gz"
+    stripComponents = 2
+    refreshPeriod = "168h"
+    exact = true
+    include = ["**/nix/**"]
+[".config/brew"]
+    type = "archive"
+    url = "https://github.com/jmgilman/dev-mac/archive/refs/heads/master.tar.gz"
+    exact = true
+    stripComponents = 2
+    refreshPeriod = "168h"
+    include = ["**/brew/*"]

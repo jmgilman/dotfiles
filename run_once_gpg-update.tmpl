@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-# gpg.conf hash: {{ include "private_dot_gnupg/gpg.conf" | sha256sum }}
-# gpg-agent.conf hash: {{ include "private_dot_gnupg/gpg-agent.conf" | sha256sum }}
-pkill gpg-agent; gpg-agent --homedir $HOME/.gnupg --daemon
